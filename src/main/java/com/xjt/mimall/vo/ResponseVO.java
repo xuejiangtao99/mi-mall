@@ -32,4 +32,10 @@ public class ResponseVO<T> {
 
         return new ResponseVO(responseEnum.getCode(), responseEnum.getMsg());
     }
+
+
+    public static ResponseVO error(ResponseEnum responseEnum,String msg){
+
+        return new ResponseVO(responseEnum.getCode(),msg);
+    }
 }

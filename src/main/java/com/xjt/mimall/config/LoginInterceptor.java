@@ -27,7 +27,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 
         String token = request.getHeader("accessToken");
 
-        if(StringUtils.hasLength(token)){
+        if(!StringUtils.hasLength(token)){
             throw new ServiceException(ResponseEnum.USER_IS_NOT_LOGIN);
 
         }else{
