@@ -1,14 +1,14 @@
 package com.xjt.mimall.service;
 
-import com.xjt.mimall.vo.RegisterVO;
+import com.xjt.mimall.dto.RegisterDTO;
 
 public interface IUserService {
 
 
     /**
      * 新增用户/注册
-     * @param registerVO
+     * @param RegisterDTO
      */
-   void saveUser(RegisterVO registerVO);
+   void saveUser(RegisterDTO RegisterDTO);
    
 }

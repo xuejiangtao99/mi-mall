@@ -1,10 +1,10 @@
 package com.xjt.mimall.controller;
 
-import com.xjt.mimall.dto.ResponseDTO;
+import com.xjt.mimall.vo.ResponseVO;
 import com.xjt.mimall.enums.ResponseEnum;
 import com.xjt.mimall.exception.ServiceException;
 import com.xjt.mimall.service.IUserService;
-import com.xjt.mimall.vo.RegisterVO;
+import com.xjt.mimall.dto.RegisterDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,13 +20,13 @@ public class UserController {
     private IUserService iUserService;
 
     @PostMapping("/register")
-    public ResponseDTO saveUser(@RequestBody RegisterVO registerVO){
+    public ResponseVO saveUser(@RequestBody RegisterDTO RegisterDTO){
 
-        if(StringUtils.isEmpty(registerVO)){
+        if(StringUtils.isEmpty(RegisterDTO)){
             throw new ServiceException(ResponseEnum.USER_IS_NULL);
         }
-        iUserService.saveUser(registerVO);
+        iUserService.saveUser(RegisterDTO);
 
-        return ResponseDTO.success(ResponseEnum.REGISTRY_SUCCESS);
+        return ResponseVO.success(ResponseEnum.REGISTRY_SUCCESS);
     }
 }

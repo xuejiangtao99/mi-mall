@@ -8,7 +8,7 @@ import com.xjt.mimall.pojo.MallUser;
 import com.xjt.mimall.service.IUserService;
 import com.xjt.mimall.util.CopyUtil;
 import com.xjt.mimall.util.UuidUtil;
-import com.xjt.mimall.vo.RegisterVO;
+import com.xjt.mimall.dto.RegisterDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
@@ -26,15 +26,15 @@ public class UserViceImpl implements IUserService {
 
     /**
      * 注册
-     * @param registerVO
+     * @param RegisterDTO
      */
     @Override
-    public void saveUser(RegisterVO registerVO) {
+    public void saveUser(RegisterDTO RegisterDTO) {
 
         //判断邮箱和用户名
-        int countUsername = mallUserMapper.countSelectByUsername(registerVO.getUsername());
+        int countUsername = mallUserMapper.countSelectByUsername(RegisterDTO.getUsername());
 
-        int countEmail = mallUserMapper.countSelectByEmail(registerVO.getEmail());
+        int countEmail = mallUserMapper.countSelectByEmail(RegisterDTO.getEmail());
 
         if(countUsername > 0){
             throw new ServiceException(ResponseEnum.USER_EXITS);
@@ -46,9 +46,9 @@ public class UserViceImpl implements IUserService {
         }
 
         //MD5 + 密 + 盐
-        registerVO.setPassword(DigestUtils.md5DigestAsHex((registerVO.getPassword() + SALT).getBytes(Charset.forName("utf-8"))));
+        RegisterDTO.setPassword(DigestUtils.md5DigestAsHex((RegisterDTO.getPassword() + SALT).getBytes(Charset.forName("utf-8"))));
 
-        MallUser mallUser = CopyUtil.copyObject(registerVO, MallUser.class);
+        MallUser mallUser = CopyUtil.copyObject(RegisterDTO, MallUser.class);
 
         mallUser.setRole(RoleEnum.ORDINARY_ROLE.getRole());
 

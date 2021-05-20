@@ -23,7 +23,8 @@ public enum ResponseEnum {
     USER_EXITS(20001,"用户已经存在"),
     EMAIL_EXITS(20002,"邮箱已经存在"),
     REGISTRY_SUCCESS(200,"用户注册成功"),
-    USER_IS_NULL(20003,"用户为空");
+    USER_IS_NULL(20003,"用户为空"),
+    USER_IS_NOT_LOGIN(20004,"用户未登录");
     private Integer code;
 
     private String msg;
