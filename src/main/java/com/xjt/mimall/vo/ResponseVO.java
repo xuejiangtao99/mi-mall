@@ -16,8 +16,7 @@ public class ResponseVO<T> {
 
     private T data;
 
-
-    public ResponseVO(Integer code, String message) {
+    private ResponseVO(Integer code, String message) {
 
         this.status = code;
         this.msg = message;
@@ -28,14 +27,21 @@ public class ResponseVO<T> {
         return new ResponseVO(responseEnum.getCode(), responseEnum.getMsg());
     }
 
-    public static ResponseVO error(ResponseEnum responseEnum){
 
-        return new ResponseVO(responseEnum.getCode(), responseEnum.getMsg());
+    public static ResponseVO success(ResponseEnum responseEnum,Object data){
+
+        return new ResponseVO(responseEnum.getCode(), responseEnum.getMsg(),data);
     }
 
 
     public static ResponseVO error(ResponseEnum responseEnum,String msg){
 
         return new ResponseVO(responseEnum.getCode(),msg);
+    }
+
+
+    public static ResponseVO error(Integer code,String msg){
+
+        return new ResponseVO(code,msg);
     }
 }

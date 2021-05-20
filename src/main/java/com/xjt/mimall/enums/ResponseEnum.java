@@ -17,6 +17,7 @@ public enum ResponseEnum {
     SYSTEM_SUCCESS(200,"成功"),
     REGISTRY_SUCCESS(200,"用户注册成功"),
     LOGIN_SUCCESS(200,"登录成功"),
+    LOG_OUT_SUCCESS(200,"退出登录成功"),
 
     /*系统10000*/
     SYSTEM_ERROR(-1,"服务端异常"),
@@ -25,8 +26,10 @@ public enum ResponseEnum {
     USER_EXITS(20001,"用户已经存在"),
     EMAIL_EXITS(20002,"邮箱已经存在"),
     USERNAME_OR_PASSWORD_ERROR(20005,"用户名或者密码错误"),
+    NOT_HAS_USER(20006,"没有该用户"),
     USER_IS_NULL(20003,"用户为空"),
     USER_IS_NOT_LOGIN(20004,"用户未登录,请先登录"),
+    LOGIN_EXPIRED_OR_USER_NOT_LOGIN(20007,"登录超时或未登录,请登录"),
     /*30000参数*/
     PARAM_ERROR(30001,"参数异常");
     private Integer code;

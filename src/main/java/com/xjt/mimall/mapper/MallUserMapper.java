@@ -109,4 +109,6 @@ public interface MallUserMapper {
      * @return
      */
     int countSelectByEmail(String email);
+
+    MallUser selectByUsername(String username);
 }

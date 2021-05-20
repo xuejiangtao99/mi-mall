@@ -18,7 +18,7 @@ public class ControllerExceptionHandler {
     public ResponseVO handle(ServiceException se){
 
 
-        return new ResponseVO(se.getCode(),se.getMessage());
+        return ResponseVO.error(se.getCode(),se.getMessage());
     }
 
 

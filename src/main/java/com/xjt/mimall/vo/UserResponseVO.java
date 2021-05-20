@@ -24,4 +24,6 @@ public class UserResponseVO {
     private Date createTime;
 
     private Date updateTime;
+
+    private String token;
 }
