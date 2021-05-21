@@ -39,6 +39,6 @@
                              targetPackage="com.xjt.mimall.mapper"
                              type="XMLMAPPER" />
 
-        <table tableName="mall_user" domainObjectName="MallUser"/>
+        <table tableName="mall_category" domainObjectName="MallCategory"/>
     </context>
 </generatorConfiguration>
